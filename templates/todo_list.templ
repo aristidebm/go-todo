@@ -1,6 +1,8 @@
-package main
+package templates 
 
-templ TodoList(title string, todos []Todo) {
+import "test/todo/models"
+
+templ TodoList(title string, todos []models.Todo) {
 	@Page(title) {
 		<style>
             td, th {
@@ -20,7 +22,7 @@ templ TodoList(title string, todos []Todo) {
 	}
 }
 
-templ todoList(todos []Todo) {
+templ todoList(todos []models.Todo) {
 	<table>
 		<thead>
 			<tr>

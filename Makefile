@@ -10,3 +10,6 @@ run:
 
 test:
 	go test main_test.go
+
+generate:
+	templ generate
