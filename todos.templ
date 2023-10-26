@@ -1,35 +1,43 @@
 package main
 
-templ TodoList(todos []Todo) {
-    <style>
-        td, th {
+templ TodoList(title string, todos []Todo) {
+	@Page(title) {
+		<style>
+            td, th {
             border: 1px solid #D3D3D3;
             padding: 10px 10px;
-        }
-        th {
-            background-color: #E5E4E2
-        }
-        tr:nth-of-type(even) {
-            background-color: #E5E4E2
-        }
-    </style>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Priority</th>
-                <!-- <th colspan="2">Content</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            for _, t := range todos {
-                <tr>
-                    <td>{ t.Title }</td>
-                    <td>{ t.Content }</td>
-                    <td>{ t.Priority }</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-} 
+                        }
+                    th {
+                        background-color: #E5E4E2
+                    }
+            tr:nth-of-type(even) {
+                   background-color: #E5E4E2
+               }
+       </style>
+		<section>
+			@todoList(todos)
+		</section>
+	}
+}
+
+templ todoList(todos []Todo) {
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Content</th>
+				<th>Priority</th>
+				<!-- <th colspan="2">Content</th> -->
+			</tr>
+		</thead>
+		<tbody>
+			for _, t := range todos {
+				<tr>
+					<td>{ t.Title }</td>
+					<td>{ t.Content }</td>
+					<td>{ t.Priority }</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}

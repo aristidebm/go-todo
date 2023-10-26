@@ -1,6 +1,7 @@
 RUNNABLE := todo-app
 
 format:
+	templ fmt .
 	go fmt *.go
 
 run:

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"html/template"
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
+	"html/template"
 )
 
 type Template struct {
@@ -25,7 +25,8 @@ func main() {
 	}
 	router.GET("/todos", func(c echo.Context) error {
 		// source https://www.reddit.com/r/golang/comments/17d12wk/using_echo_with_ahtempl/
-		handler := templ.Handler(TodoList(todos))
+		title := "Todo"
+		handler := templ.Handler(TodoList(title, todos))
 		c.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
 		return handler.Component.Render(c.Request().Context(), c.Response().Writer)
 	})
