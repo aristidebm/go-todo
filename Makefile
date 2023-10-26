@@ -1,10 +1,10 @@
 RUNNABLE := todo-app
 
 format:
-	go fmt main.go
+	go fmt *.go
 
 run:
-	go build -o ${RUNNABLE} main.go
+	go build -o ${RUNNABLE} *.go
 	./${RUNNABLE}
 
 test:

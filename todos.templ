@@ -1,4 +1,6 @@
-{{define "todos"}}
+package main
+
+templ TodoList(todos []Todo) {
     <style>
         td, th {
             border: 1px solid #D3D3D3;
@@ -11,7 +13,6 @@
             background-color: #E5E4E2
         }
     </style>
-
     <table>
         <thead>
             <tr>
@@ -22,13 +23,13 @@
             </tr>
         </thead>
         <tbody>
-            {{ range . }}
+            for _, t := range todos {
                 <tr>
-                    <td>{{ .Title }}</td>
-                    <td>{{ .Content }}</td>
-                    <td>{{ .Priority }}</td>
+                    <td>{ t.Title }</td>
+                    <td>{ t.Content }</td>
+                    <td>{ t.Priority }</td>
                 </tr>
-            {{ end }}
+            }
         </tbody>
     </table>
-{{end}}
+} 
