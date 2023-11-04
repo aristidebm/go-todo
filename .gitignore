@@ -20,6 +20,3 @@
 # Go workspace file
 go.work
 todo-app
-
-# Go template file
-*_templ.go

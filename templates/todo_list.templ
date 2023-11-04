@@ -4,7 +4,7 @@ import "test/todo/models"
 
 templ TodoList(title string, todos []models.Todo) {
 	@Page(title) {
-    <!--<style>
+		<!--<style>
             td, th {
             border: 1px solid #D3D3D3;
             padding: 10px 10px;
@@ -26,12 +26,12 @@ templ todoList(todos []models.Todo) {
 	<table class="w-full text-sm text-left text-gray-500">
 		<thead text-xs text-gray-700 uppercase bg-gray-50>
 			<tr>
-                <th scope="col" class="p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"/>
-                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                    </div>
-                </th>
+				<th scope="col" class="p-4">
+					<div class="flex items-center">
+						<input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"/>
+						<label for="checkbox-all-search" class="sr-only">checkbox</label>
+					</div>
+				</th>
 				<th scope="col" class="px-6 py-3">Title</th>
 				<th scope="col" class="px-6 py-3">Content</th>
 				<th scope="col" class="px-6 py-3">Priority</th>
@@ -40,12 +40,12 @@ templ todoList(todos []models.Todo) {
 		<tbody>
 			for _, t := range todos {
 				<tr class="bg-white border-b">
-                    <td class="w-4 p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                        </div>
-                    </td>
+					<td class="w-4 p-4">
+						<div class="flex items-center">
+							<input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+							<label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+						</div>
+					</td>
 					<td class="px-6 py-4">{ t.Title }</td>
 					<td class="px-6 py-4">{ t.Content }</td>
 					<td class="px-6 py-4">{ t.Priority }</td>
