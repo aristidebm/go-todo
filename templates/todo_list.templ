@@ -4,18 +4,6 @@ import "test/todo/models"
 
 templ TodoList(title string, todos []models.Todo) {
 	@Page(title) {
-		<!--<style>
-            td, th {
-            border: 1px solid #D3D3D3;
-            padding: 10px 10px;
-                        }
-                    th {
-                        background-color: #E5E4E2
-                    }
-            tr:nth-of-type(even) {
-                   background-color: #E5E4E2
-               }
-   </style>-->
 		<section relative overflow-x-auto>
 			@todoList(todos)
 		</section>

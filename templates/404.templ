@@ -1,0 +1,15 @@
+package templates 
+
+templ NotFoundError(title string, message string) {
+	@Page(title) {
+		<section>
+			@validationError(message)
+		</section>
+	}
+}
+
+templ notFoundError(msg string) {
+	<div>
+		{ msg }
+	</div>
+}

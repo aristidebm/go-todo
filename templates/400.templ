@@ -1,0 +1,15 @@
+package templates 
+
+templ ValidationError(title string, message string) {
+	@Page(title) {
+		<section>
+			@validationError(message)
+		</section>
+	}
+}
+
+templ validationError(msg string) {
+	<div>
+		{ msg }
+	</div>
+}

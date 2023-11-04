@@ -1,0 +1,15 @@
+package templates 
+
+import "test/todo/models"
+
+templ TodoRetrieve(title string, todo models.Todo) {
+	@Page(title) {
+		<section>
+			@todoRetrieve(todo)
+		</section>
+	}
+}
+
+templ todoRetrieve(todo models.Todo) {
+	<div></div>
+}

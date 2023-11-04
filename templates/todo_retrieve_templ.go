@@ -12,7 +12,7 @@ import "bytes"
 
 import "test/todo/models"
 
-func TodoCreate(title string, todo models.Todo) templ.Component {
+func TodoRetrieve(title string, todo models.Todo) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -35,7 +35,7 @@ func TodoCreate(title string, todo models.Todo) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = todoCreate(todo).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = todoRetrieve(todo).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -59,7 +59,7 @@ func TodoCreate(title string, todo models.Todo) templ.Component {
 	})
 }
 
-func todoCreate(todo models.Todo) templ.Component {
+func todoRetrieve(todo models.Todo) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {

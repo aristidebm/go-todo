@@ -1,0 +1,15 @@
+package templates 
+
+templ ServerError(title string, stackTrace string) {
+	@Page(title) {
+		<section>
+			@serverError(stackTrace)
+		</section>
+	}
+}
+
+templ serverError(st string) {
+	<div>
+		{ st }
+	</div>
+}
