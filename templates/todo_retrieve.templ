@@ -1,6 +1,9 @@
 package templates 
 
-import "test/todo/models"
+import (
+	"fmt"
+	"test/todo/models"
+)
 
 templ TodoRetrieve(title string, todo models.Todo) {
 	@Page(title) {
@@ -10,6 +13,56 @@ templ TodoRetrieve(title string, todo models.Todo) {
 	}
 }
 
-templ todoRetrieve(todo models.Todo) {
-	<div></div>
+templ todoRetrieve(td models.Todo) {
+	<div>
+		<form action={ templ.SafeURL(fmt.Sprintf("/todos/%d", td.Id)) } method="POST" hx-patch={ templ.SafeURL(fmt.Sprintf("/todos/%d", td.Id)) }>
+			<input id="id" value={ fmt.Sprint(td.Id) } hidden/>
+			<div>
+				<div>
+					<label for="#id">Title</label>
+				</div>
+				<div>
+					<input id="id" value={ td.Title }/>
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="#id">Content</label>
+				</div>
+				<div>
+					<textarea id="id">{ td.Content.String }</textarea>
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="#id">Status</label>
+				</div>
+				<div>
+					<select id="id">
+						<option value="todo" selected?={ td.Status == "todo" }>Todo</option>
+						<option value="doing" selected?={ td.Status == "doing" }>Doing</option>
+						<option value="done" selected?={ td.Status == "done" }>Done</option>
+						<option value="cancelled" selected?={ td.Status == "cancelled" }>Cancelled</option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="#id">Priority</label>
+				</div>
+				<div>
+					<select id="id">
+						<option value="low" selected?={ td.Priority == "low" }>Low</option>
+						<option value="medium" selected?={ td.Priority == "medium" }>Medium</option>
+						<option value="high" selected?={ td.Priority == "high" }>High</option>
+						<option value="critical" selected?={ td.Priority  == "critical" }>Critical</option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<button type="submit" hx-patch={  }>Save</button>
+				<button type="button">Delete</button>
+			</div>
+		</form>
+	</div>
 }

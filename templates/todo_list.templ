@@ -1,6 +1,9 @@
 package templates 
 
-import "test/todo/models"
+import (
+	"test/todo/models"
+	"fmt"
+)
 
 templ TodoList(title string, todos []models.Todo) {
 	@Page(title) {
@@ -22,6 +25,7 @@ templ todoList(todos []models.Todo) {
 				</th>
 				<th scope="col" class="px-6 py-3">Title</th>
 				<th scope="col" class="px-6 py-3">Content</th>
+				<th scope="col" class="px-6 py-3">Status</th>
 				<th scope="col" class="px-6 py-3">Priority</th>
 			</tr>
 		</thead>
@@ -34,8 +38,13 @@ templ todoList(todos []models.Todo) {
 							<label for="checkbox-table-search-1" class="sr-only">checkbox</label>
 						</div>
 					</td>
-					<td class="px-6 py-4">{ t.Title }</td>
-					<td class="px-6 py-4">{ t.Content }</td>
+					<td class="px-6 py-4"><a href={ templ.SafeURL(fmt.Sprintf("/todos/%d", t.Id)) }>{ t.Title }</a></td>
+					if !t.Content.Valid || (t.Content.Valid && t.Content.String == "") {
+						<td class="px-6 py-4">{ "-" }</td>
+					} else {
+						<td class="px-6 py-4">{ t.Content.String }</td>
+					}
+					<td class="px-6 py-4">{ t.Status }</td>
 					<td class="px-6 py-4">{ t.Priority }</td>
 				</tr>
 			}
